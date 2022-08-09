@@ -32,6 +32,26 @@ openModalButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     console.log("Clicked line 33");
     const modal = document.querySelector(button.dataset.modalTarget);
-    console.log(modal);
+    openModal(modal);
   });
 });
+
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    console.log("Clicked line 41");
+    const modal = button.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+function openModal() {
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal() {
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}

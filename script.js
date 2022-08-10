@@ -49,15 +49,43 @@ function closeModal() {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+let bookTitle = document.getElementById("titleInput").value;
+let bookAuthor = document.getElementById("authorInput").value;
+let bookPages = document.getElementById("pagesInput").value;
+let bookReadInput = document.getElementById("readInput");
 
-//User inputs eventListeners
+//User input eventListeners
 const inputs = document.querySelectorAll("input");
 
 inputs.forEach((input, index) => {
   index++;
   input.addEventListener("change", () => {
-    if (index < 3) {
+    console.log("change");
+    if (index <= 3) {
+      bookTitle = document.getElementById("titleInput").value;
+      bookAuthor = document.getElementById("authorInput").value;
+      bookPages = document.getElementById("pagesInput").value;
+      bookReadInput = document.getElementById("readInput");
       inputs[index].focus();
     } //If value has changed and user tries to click previous input. Focus still moves onto next child. Will need to improve.
   });
+});
+
+//Adding book to library
+const addButton = document.querySelector(".add-button");
+
+let bookRead;
+function isBookRead() {
+  if (bookReadInput.checked) {
+    bookRead = "Read";
+  } else {
+    bookRead = "Not Read";
+  }
+}
+
+let newBook;
+addButton.addEventListener("click", () => {
+  isBookRead();
+  newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+  myLibrary.push(newBook);
 });

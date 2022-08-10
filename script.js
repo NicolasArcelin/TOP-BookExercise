@@ -17,28 +17,22 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {}
 
-//New Book Button
-// const addBookBtn = document.getElementById("addBookBtn");
-// addBookBtn.addEventListener("click", () => {
-//   console.log("clicked!");
-// });
-
-//Modal
+//Modal User Interface
 const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 
 openModalButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    console.log("Clicked line 33");
+  button.addEventListener("click", () => {
+    //console.log("openModalButton CLicked");
     const modal = document.querySelector(button.dataset.modalTarget);
     openModal(modal);
   });
 });
 
 closeModalButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    console.log("Clicked line 41");
+  button.addEventListener("click", () => {
+    //console.log("closeModalButton Clicked")
     const modal = button.closest(".modal");
     closeModal(modal);
   });
@@ -55,3 +49,15 @@ function closeModal() {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+//User inputs eventListeners
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach((input, index) => {
+  index++;
+  input.addEventListener("change", () => {
+    if (index < 3) {
+      inputs[index].focus();
+    } //If value has changed and user tries to click previous input. Focus still moves onto next child. Will need to improve.
+  });
+});

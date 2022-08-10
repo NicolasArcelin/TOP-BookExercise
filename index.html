@@ -17,12 +17,19 @@
         <div class="title">New Book</div>
         <button data-close-button class="close-btn">&times;</button>
       </div>
-      <form class="modal-UI" id="modal-UI">
-        <input placeholder="Title" required type="text" />
-        <input placeholder="Author" required type="text" />
-        <input placeholder="Pages" required type="text" />
-        <input placeholder="Read?" required type="text" />
-      </form>
+      <div class="modal-UI" id="modal-UI">
+        <input placeholder="Title" required type="text" id="titleInput" />
+        <input placeholder="Author" required type="text" id="authorInput" />
+        <input placeholder="Pages" required type="text" id="pagesInput" />
+
+        <span class="footer">
+          <div>
+            Read?
+            <input placeholder="Read?" type="checkbox" id="readInput" />
+          </div>
+          <button class="add-button">ADD</button>
+        </span>
+      </div>
     </div>
     <div id="overlay" class=""></div>
   </body>

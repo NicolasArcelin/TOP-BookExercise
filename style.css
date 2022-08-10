@@ -49,7 +49,20 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  grid-row-gap: 10px;
+  grid-row-gap: 5px;
+}
+
+.modal-UI .footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-UI .add-button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 #overlay {

@@ -49,10 +49,10 @@ function closeModal() {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
-let bookTitle = document.getElementById("titleInput").value;
-let bookAuthor = document.getElementById("authorInput").value;
-let bookPages = document.getElementById("pagesInput").value;
-let bookReadInput = document.getElementById("readInput");
+let bookTitle = "";
+let bookAuthor = "";
+let bookPages = "";
+let bookReadInput = "";
 
 //User input eventListeners
 const inputs = document.querySelectorAll("input");
@@ -74,7 +74,7 @@ inputs.forEach((input, index) => {
 //Adding book to library
 const addButton = document.querySelector(".add-button");
 
-let bookRead;
+let bookRead = NaN;
 function isBookRead() {
   if (bookReadInput.checked) {
     bookRead = "Read";
@@ -85,7 +85,20 @@ function isBookRead() {
 
 let newBook;
 addButton.addEventListener("click", () => {
-  isBookRead();
-  newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
-  myLibrary.push(newBook);
+  if (bookTitle != "" && bookAuthor != "" && bookPages != "") {
+    isBookRead();
+    newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+    bookTitle = "";
+    bookAuthor = "";
+    bookPages = "";
+    myLibrary.push(newBook);
+    inputs.forEach((input) => {
+      input.value = "";
+      input.checked = false;
+    });
+    bookRead.checked = false;
+    closeModal(modal);
+  } else {
+    alert("Please fill in all inputs");
+  }
 });

@@ -100,3 +100,30 @@ addButton.addEventListener("click", () => {
     alert("Please fill in all inputs");
   }
 });
+
+//Div cards for library books on HTML
+function createLibraryCard() {
+  const libraryCardsWrapper = document.querySelector(".libraryCardsWrapper");
+
+  const newBookCard = document.createElement("div");
+  const newBookCardTitle = document.createElement("h2");
+  const newBookCardAuthor = document.createElement("h4");
+  const newBookCardPages = document.createElement("h4");
+
+  const newBookCardReadParent = document.createElement("div");
+  const newBookCardIsRead = document.createElement("h4");
+  const newBookCardReadCheckbox = document.createElement("input");
+
+  // Adds children to parents
+  libraryCardsWrapper.appendChild(newBookCard);
+  newBookCard.appendChild(newBookCardTitle);
+  newBookCard.appendChild(newBookCardAuthor);
+  newBookCard.appendChild(newBookCardPages);
+
+  newBookCardReadParent.appendChild(newBookCardIsRead);
+  newBookCardReadParent.appendChild(newBookCardReadCheckbox);
+
+  newBookCard.appendChild(newBookCardReadParent);
+}
+
+for (let i = 0; i < myLibrary.length; i++) {}

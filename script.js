@@ -1,5 +1,3 @@
-// alert("linked!");
-
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -67,7 +65,7 @@ inputs.forEach((input, index) => {
       bookPages = document.getElementById("pagesInput").value;
       bookReadInput = document.getElementById("readInput");
       inputs[index].focus();
-    } //If value has changed and user tries to click previous input. Focus still moves onto next child. Will need to improve.
+    } //ISSUE: If value has changed and user tries to click previous input. Focus still moves onto next child.
   });
 });
 

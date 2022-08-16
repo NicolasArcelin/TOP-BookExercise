@@ -81,3 +81,23 @@
   pointer-events: all;
   opacity: 1;
 }
+
+/* libraryCardsWarapper */
+.libraryCardsWrapper {
+  border: black 1px solid;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.libraryCard {
+  border: red 1px solid;
+  text-align: center;
+  max-width: 20rem;
+}
+
+.isRead {
+  border: blue 1px solid;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+}

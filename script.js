@@ -85,11 +85,18 @@ function createLibraryCard() {
   newBookCardPages.textContent = "Pages: " + myLibrary[latestBook].pages;
 
   const newBookCardReadParent = document.createElement("div");
-  newBookCardReadParent.classList.add("isRead");
+  newBookCardReadParent.classList.add("cardFooter");
+
+  const isRead = document.createElement("div");
+  isRead.classList.add("isRead");
+
   const newBookCardIsRead = document.createElement("h4");
   newBookCardIsRead.textContent = "Is Read";
   const newBookCardReadCheckbox = document.createElement("input");
   newBookCardReadCheckbox.type = "checkbox";
+
+  const deleteBookButton = document.createElement("button");
+  deleteBookButton.innerHTML = "&times;";
 
   // Adds children to parents
   libraryCardsWrapper.appendChild(newBookCard);
@@ -97,8 +104,10 @@ function createLibraryCard() {
   newBookCard.appendChild(newBookCardAuthor);
   newBookCard.appendChild(newBookCardPages);
 
-  newBookCardReadParent.appendChild(newBookCardIsRead);
-  newBookCardReadParent.appendChild(newBookCardReadCheckbox);
+  isRead.appendChild(newBookCardIsRead);
+  isRead.appendChild(newBookCardReadCheckbox);
+  newBookCardReadParent.appendChild(isRead);
+  newBookCardReadParent.appendChild(deleteBookButton);
 
   newBookCard.appendChild(newBookCardReadParent);
 }

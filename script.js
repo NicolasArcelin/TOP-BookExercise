@@ -69,6 +69,40 @@ inputs.forEach((input, index) => {
   });
 });
 
+//Div cards for library books on HTML
+function createLibraryCard() {
+  const libraryCardsWrapper = document.querySelector(".libraryCardsWrapper");
+
+  const latestBook = Object.values(myLibrary).length - 1;
+
+  const newBookCard = document.createElement("div");
+  newBookCard.classList.add("libraryCard");
+  const newBookCardTitle = document.createElement("h2");
+  newBookCardTitle.textContent = "Title: " + myLibrary[latestBook].title;
+  const newBookCardAuthor = document.createElement("h4");
+  newBookCardAuthor.textContent = "Author: " + myLibrary[latestBook].author;
+  const newBookCardPages = document.createElement("h4");
+  newBookCardPages.textContent = "Pages: " + myLibrary[latestBook].pages;
+
+  const newBookCardReadParent = document.createElement("div");
+  newBookCardReadParent.classList.add("isRead");
+  const newBookCardIsRead = document.createElement("h4");
+  newBookCardIsRead.textContent = "Is Read";
+  const newBookCardReadCheckbox = document.createElement("input");
+  newBookCardReadCheckbox.type = "checkbox";
+
+  // Adds children to parents
+  libraryCardsWrapper.appendChild(newBookCard);
+  newBookCard.appendChild(newBookCardTitle);
+  newBookCard.appendChild(newBookCardAuthor);
+  newBookCard.appendChild(newBookCardPages);
+
+  newBookCardReadParent.appendChild(newBookCardIsRead);
+  newBookCardReadParent.appendChild(newBookCardReadCheckbox);
+
+  newBookCard.appendChild(newBookCardReadParent);
+}
+
 //Adding book to library
 const addButton = document.querySelector(".add-button");
 
@@ -96,34 +130,8 @@ addButton.addEventListener("click", () => {
     });
     bookRead.checked = false;
     closeModal(modal);
+    createLibraryCard();
   } else {
     alert("Please fill in all inputs");
   }
 });
-
-//Div cards for library books on HTML
-function createLibraryCard() {
-  const libraryCardsWrapper = document.querySelector(".libraryCardsWrapper");
-
-  const newBookCard = document.createElement("div");
-  const newBookCardTitle = document.createElement("h2");
-  const newBookCardAuthor = document.createElement("h4");
-  const newBookCardPages = document.createElement("h4");
-
-  const newBookCardReadParent = document.createElement("div");
-  const newBookCardIsRead = document.createElement("h4");
-  const newBookCardReadCheckbox = document.createElement("input");
-
-  // Adds children to parents
-  libraryCardsWrapper.appendChild(newBookCard);
-  newBookCard.appendChild(newBookCardTitle);
-  newBookCard.appendChild(newBookCardAuthor);
-  newBookCard.appendChild(newBookCardPages);
-
-  newBookCardReadParent.appendChild(newBookCardIsRead);
-  newBookCardReadParent.appendChild(newBookCardReadCheckbox);
-
-  newBookCard.appendChild(newBookCardReadParent);
-}
-
-for (let i = 0; i < myLibrary.length; i++) {}
